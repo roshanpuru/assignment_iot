@@ -23,8 +23,10 @@ public class CustomerRewardImpl implements ICustomerReward {
         .filter(item -> item.getMonth() == month)
         .map(item ->{
             int points =0;
-            if(item.getCost() > 50){
+            if(item.getCost() > 50 && item.getCost() <=100){
                 points = points + item.getCost() - 50;
+            }else if(item.getCost() > 50 && item.getCost() >=100){
+                points = points + 50;
             }else if(item.getCost() > 100){
                 points = points + 2*(item.getCost() - 100);
             }
